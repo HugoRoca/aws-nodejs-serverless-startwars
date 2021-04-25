@@ -1,5 +1,7 @@
 # Integration SWAPI and dynamodb
 
+> At present this project is running on: https://nhxxtbgmt4.execute-api.us-east-1.amazonaws.com/dev
+
 Steps for install:
 1. run `npm install`
 2. config your credential of aws

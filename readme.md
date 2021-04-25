@@ -15,7 +15,7 @@ the endpoints this repository are bellow: `/dev/api-docs`
 
 ![swagger_doc](doc/swagger.png)
 
-For this project has the architect bellow:
+the endpoints of this repository are in the following path: **/api-docs**
 
 ![graphic](doc/graphic.png)
 

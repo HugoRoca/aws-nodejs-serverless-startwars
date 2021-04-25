@@ -1,0 +1,885 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This application is only for tests",
+    "version": "1.0.0",
+    "title": "Swagger StarWars and Courses"
+  },
+  "basePath": "/dev",
+  "tags": [
+    {
+      "name": "StarWars",
+      "description": "Implements with api SWAPI"
+    },
+    {
+      "name": "Courses",
+      "description": "Implements with dynamoDB"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/starwars/people": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get all peoples",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/People"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/starwars/people/{id}": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get people by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of people",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/People"
+            }
+          }
+        }
+      }
+    },
+    "/starwars/films": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get all films",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Films"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/starwars/films/{id}": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get films by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of people",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Films"
+            }
+          }
+        }
+      }
+    },
+    "/starwars/planets": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get all planets",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Films"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/starwars/planets/{id}": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get planets by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of people",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Planets"
+            }
+          }
+        }
+      }
+    },
+    "/starwars/species": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get all species",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Species"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/starwars/species/{id}": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get species by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of people",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Species"
+            }
+          }
+        }
+      }
+    },
+    "/starwars/vehicles": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get all vehicles",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Vehicles"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/starwars/vehicles/{id}": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get vehicles by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of people",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Vehicles"
+            }
+          }
+        }
+      }
+    },
+    "/starwars/starships": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get all starships",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StarShips"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/starwars/starships/{id}": {
+      "get": {
+        "tags": [
+          "StarWars"
+        ],
+        "summary": "get starships by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of people",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/StarShips"
+            }
+          }
+        }
+      }
+    },
+    "/course": {
+      "post": {
+        "tags": [
+          "Courses"
+        ],
+        "summary": "Returns all courses",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "model for insert course",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CourseRequestPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/CoursesGet"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Courses"
+        ],
+        "summary": "Returns all courses",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "model for insert course",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CourseRequestPut"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/CoursesGet"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Courses"
+        ],
+        "summary": "Returns all courses",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CoursesGet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/course/{id}": {
+      "get": {
+        "tags": [
+          "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of course",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "summary": "Returns courses by id",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/CoursesGet"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of people",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "summary": "Delete course by id",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/CoursesGet"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CourseRequestPut": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "course": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CourseRequestPost": {
+      "type": "object",
+      "properties": {
+        "course": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CoursesGet": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "course": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "integer"
+        }
+      }
+    },
+    "StarShips": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "modelo": {
+          "type": "string"
+        },
+        "manufactura": {
+          "type": "string"
+        },
+        "costoCreditos": {
+          "type": "string"
+        },
+        "longitud": {
+          "type": "string"
+        },
+        "atmosferaMaxima": {
+          "type": "string"
+        },
+        "tripulacion": {
+          "type": "string"
+        },
+        "pasajeros": {
+          "type": "string"
+        },
+        "capacidadCargo": {
+          "type": "string"
+        },
+        "consumibles": {
+          "type": "string"
+        },
+        "hiperimpulsion": {
+          "type": "string"
+        },
+        "mglt": {
+          "type": "string"
+        },
+        "claseEstrellaEstelar": {
+          "type": "string"
+        },
+        "pilotos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "peliculas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fechaCreacion": {
+          "type": "string"
+        },
+        "fechaEditado": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "Vehicles": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "modelo": {
+          "type": "string"
+        },
+        "manufactura": {
+          "type": "string"
+        },
+        "costoCreditos": {
+          "type": "string"
+        },
+        "longitud": {
+          "type": "string"
+        },
+        "atmosferaMaxima": {
+          "type": "string"
+        },
+        "tripulacion": {
+          "type": "string"
+        },
+        "pasajeros": {
+          "type": "string"
+        },
+        "capacidadCargo": {
+          "type": "string"
+        },
+        "consumibles": {
+          "type": "string"
+        },
+        "claseVehiculo": {
+          "type": "string"
+        },
+        "pilotos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "peliculas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fechaCreacion": {
+          "type": "string"
+        },
+        "fechaEditado": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "Species": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "clasificacion": {
+          "type": "string"
+        },
+        "designacion": {
+          "type": "string"
+        },
+        "promedioAltura": {
+          "type": "string"
+        },
+        "esperanzaVida": {
+          "type": "string"
+        },
+        "colorCabello": {
+          "type": "string"
+        },
+        "colorPiel": {
+          "type": "string"
+        },
+        "colorOjos": {
+          "type": "string"
+        },
+        "mundoNatal": {
+          "type": "string"
+        },
+        "lenguage": {
+          "type": "string"
+        },
+        "personas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "peliculas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fechaCreacion": {
+          "type": "string"
+        },
+        "fechaEditado": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "Planets": {
+      "type": "object",
+      "properties": {
+        "titulo": {
+          "type": "string"
+        },
+        "periodoRotacion": {
+          "type": "string"
+        },
+        "periodoOrbital": {
+          "type": "string"
+        },
+        "diametro": {
+          "type": "string"
+        },
+        "clima": {
+          "type": "string"
+        },
+        "gravedad": {
+          "type": "string"
+        },
+        "terreno": {
+          "type": "string"
+        },
+        "superficieAgua": {
+          "type": "string"
+        },
+        "poblacion": {
+          "type": "string"
+        },
+        "residentes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "peliculas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fechaCreacion": {
+          "type": "string"
+        },
+        "fechaEditado": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "Films": {
+      "type": "object",
+      "properties": {
+        "titulo": {
+          "type": "string"
+        },
+        "idEpisodio": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "inicioPelicula": {
+          "type": "string"
+        },
+        "director": {
+          "type": "string"
+        },
+        "productor": {
+          "type": "string"
+        },
+        "fechaLanzamiento": {
+          "type": "string"
+        },
+        "personajes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "planetas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "estrellasEstelares": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vehiculos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "especies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "url": {
+          "type": "string"
+        },
+        "fechaCreacion": {
+          "type": "string"
+        },
+        "fechaEditado": {
+          "type": "string"
+        }
+      }
+    },
+    "People": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "altura": {
+          "type": "string"
+        },
+        "peso": {
+          "type": "string"
+        },
+        "colorCabello": {
+          "type": "string"
+        },
+        "colorPiel": {
+          "type": "string"
+        },
+        "colorOjos": {
+          "type": "string"
+        },
+        "anioNacimiento": {
+          "type": "string"
+        },
+        "genero": {
+          "type": "string"
+        },
+        "lugarNacimiento": {
+          "type": "string"
+        },
+        "peliculas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "especie": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vehiculos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "navesEstelares": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "url": {
+          "type": "string"
+        },
+        "fechaCreacion": {
+          "type": "string"
+        },
+        "fechaEditado": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

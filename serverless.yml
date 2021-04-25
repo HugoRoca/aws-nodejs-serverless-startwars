@@ -1,13 +1,12 @@
-service: aws-nodejs-serverless-starwars
+service: aws-nodejs-serverless
 
-custom:
-  tableName: 'course-${self:provider.stage}'
+frameworkVersion: "2"
 
 provider:
   name: aws
-  runtime: nodejs8.10
-  stage: dev
-  region: us-east-1
+  runtime: nodejs12.x
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -17,13 +16,10 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource:
-        - { 'Fn::GetAtt': ['CourseDynamoDBTable', 'Arn'] }
-  environment:
-    COURSE_TABLE: ${self:custom.tableName}
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
-  app:
+  routes:
     handler: index.handler
     events:
       - http: ANY /
@@ -31,16 +27,17 @@ functions:
 
 resources:
   Resources:
-    CourseDynamoDBTable:
-      Type: 'AWS::DynamoDB::Table'
+    TodosDynamoDbTable:
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: Retain
       Properties:
         AttributeDefinitions:
-          - AttributeName: courseId
+          - AttributeName: id
             AttributeType: S
         KeySchema:
-          - AttributeName: courseId
+          - AttributeName: id
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: ${self:custom.tableName}
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}

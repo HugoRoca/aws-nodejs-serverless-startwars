@@ -11,11 +11,11 @@ Steps for install:
 
 For exec unit test: `npm run test`
 
-the endpoints this repository are bellow: `/dev/api-docs`
+the endpoints of this repository are in the following path: **/api-docs**
 
 ![swagger_doc](doc/swagger.png)
 
-the endpoints of this repository are in the following path: **/api-docs**
+this repository follows the following graphic:
 
 ![graphic](doc/graphic.png)
 
